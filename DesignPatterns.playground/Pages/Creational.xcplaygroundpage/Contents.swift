@@ -12,12 +12,16 @@ There are very few applications, do not overuse this pattern!
 
 ### Example:
 */
-class Singleton {
+class Configuration {
     static let `default` = Singleton()
     
     private init() {
         // Private initialization to ensure just one instance is created.
     }
 }
- 
+/*:
+ ### Usage:
+ */
+let configuration = Configuration.default
+
 //: [Next](@next)
