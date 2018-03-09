@@ -29,12 +29,12 @@ class ElementDecorator: Element {
     private let decoratedElement: Element
     fileprivate let ingredientSeparator: String = ", "
     
-    required init(decoratedCoffee: Element) {
-        self.decoratedCoffee = decoratedCoffee
+    required init(decoratedElement: Element) {
+        self.decoratedElement = decoratedElement
     }
     
     func imagePath() -> String {
-        return decoratedCoffee.imagePath()
+        return decoratedElement.imagePath()
     }
 }
 
