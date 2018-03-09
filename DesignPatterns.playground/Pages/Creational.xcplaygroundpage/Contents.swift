@@ -13,7 +13,7 @@ There are very few applications, do not overuse this pattern!
 ### Example:
 */
 class Configuration {
-    static let `default` = Singleton()
+    static let `default` = Configuration()
     
     private init() {
         // Private initialization to ensure just one instance is created.
