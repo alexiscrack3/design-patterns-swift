@@ -12,6 +12,123 @@
 import Swift
 import Foundation
 /*:
+ Builder
+ ----------
+ 
+ The builder pattern is used to create complex objects with constituent parts that must be created in the same order or using a specific algorithm.
+ An external class controls the construction algorithm.
+ 
+ ### Example
+ */
+class Shop {
+    func build(builder: VehicleBuilder) -> Vehicle {
+        return builder.build()
+    }
+}
+
+protocol VehicleBuilder {
+    var frame: String? { get }
+    var engine: String? { get }
+    var wheels: Int? { get }
+    var doors: Int? { get }
+    
+    func setFrame(_ frame: String) -> VehicleBuilder
+    func setEngine(_ engine: String) -> VehicleBuilder
+    func setWheels(_ frame: Int) -> VehicleBuilder
+    func setDoors(_ frame: Int) -> VehicleBuilder
+    func build() -> Vehicle
+}
+
+class CarBuilder: VehicleBuilder {
+    var frame: String?
+    var engine: String?
+    var wheels: Int?
+    var doors: Int?
+    
+    func setFrame(_ frame: String) -> VehicleBuilder {
+        self.frame = frame
+        return self
+    }
+    
+    func setEngine(_ engine: String) -> VehicleBuilder {
+        self.engine = engine
+        return self
+    }
+    
+    func setWheels(_ wheels: Int) -> VehicleBuilder {
+        self.wheels = wheels
+        return self
+    }
+    
+    func setDoors(_ doors: Int) -> VehicleBuilder {
+        self.doors = doors
+        return self
+    }
+    
+    func build() -> Vehicle {
+        return Vehicle(frame: self.frame ?? "", engine: self.engine ?? "", wheels: self.wheels ?? 0, doors: self.doors ?? 0)
+    }
+}
+
+class MotorcycleBuilder: VehicleBuilder {
+    var frame: String?
+    var engine: String?
+    var wheels: Int?
+    var doors: Int?
+    
+    func setFrame(_ frame: String) -> VehicleBuilder {
+        self.frame = "Motorcycle - " + frame
+        return self
+    }
+    
+    func setEngine(_ engine: String) -> VehicleBuilder {
+        self.engine = "Motorcycle - " + engine
+        return self
+    }
+    
+    func setWheels(_ wheels: Int) -> VehicleBuilder {
+        self.wheels = wheels
+        return self
+    }
+    
+    func setDoors(_ doors: Int) -> VehicleBuilder {
+        self.doors = doors
+        return self
+    }
+    
+    func build() -> Vehicle {
+        return Vehicle(frame: self.frame ?? "", engine: self.engine ?? "", wheels: self.wheels ?? 0, doors: self.doors ?? 0)
+    }
+}
+
+struct Vehicle {
+    var frame: String
+    var engine: String
+    var wheels: Int
+    var doors: Int
+}
+/*:
+ ### Usage: Chained builder
+ */
+let car = CarBuilder()
+    .setFrame("Frame")
+    .setEngine("Engine")
+    .setWheels(4)
+    .setDoors(4)
+    .build()
+print(car)
+/*:
+ ### Usage: Using a director
+ */
+let motorcycleBuilder = MotorcycleBuilder()
+    .setFrame("Frame")
+    .setEngine("Engine")
+    .setWheels(4)
+    .setDoors(4)
+
+let motorcycle = Shop().build(builder: motorcycleBuilder)
+print(motorcycle)
+/*:
  Singleton
  ----------
 
@@ -19,7 +136,7 @@ The singleton pattern ensures that only one object of a particular class is ever
 All further references to objects of the singleton class refer to the same underlying instance.
 There are very few applications, do not overuse this pattern!
 
-### Example:
+### Example
 */
 enum LogLevel: Int {
     case verbose = 0
@@ -80,6 +197,6 @@ class Logger {
     }
 }
 /*:
- ### Usage:
+ ### Usage
  */
 Log.i(tag: .model, message: "info")
