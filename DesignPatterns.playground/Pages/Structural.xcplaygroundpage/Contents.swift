@@ -1,8 +1,19 @@
-//: [Previous](@previous)
-
+//: [Behavioral](Behavioral) |
+//: [Creational](Creational) |
+//: Structural
+/*:
+ Structural
+ ==========
+ 
+ >In software engineering, structural design patterns are design patterns that ease the design by identifying a simple way to realize relationships between entities.
+ >
+ >**Source:** [wikipedia.org](https://en.wikipedia.org/wiki/Structural_pattern)
+ */
+import Swift
+import Foundation
 /*:
  Decorator
- ------------
+ ----------
  
  The decorator pattern is used to extend or alter the functionality of objects at run- time by wrapping them in an object of a decorator class.
  This provides a flexible alternative to using inheritance to modify behaviour.
@@ -15,19 +26,18 @@ protocol Element {
 
 class Shape: Element {
     func imagePath() -> String {
-        return "Shape.png"
+        return "shape.png"
     }
 }
 
-class Number: Element {
+class Object: Element {
     func imagePath() -> String {
-        return "Number.png"
+        return "object.png"
     }
 }
 
 class ElementDecorator: Element {
     private let decoratedElement: Element
-    fileprivate let ingredientSeparator: String = ", "
     
     required init(decoratedElement: Element) {
         self.decoratedElement = decoratedElement
@@ -44,7 +54,7 @@ final class ColorDecorator: ElementDecorator {
     }
     
     override func imagePath() -> String {
-        return "color/" + super.imagePath()
+        return "color-" + super.imagePath()
     }
 }
 
@@ -54,7 +64,7 @@ final class SizeDecorator: ElementDecorator {
     }
     
     override func imagePath() -> String {
-        return "size/" + super.imagePath()
+        return "size-" + super.imagePath()
     }
 }
 /*:
@@ -66,5 +76,3 @@ element = ColorDecorator(decoratedElement: element)
 print("Path = \(element.imagePath())")
 element = SizeDecorator(decoratedElement: element)
 print("Path = \(element.imagePath())")
-
-//: [Next](@next)
