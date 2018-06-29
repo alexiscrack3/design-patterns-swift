@@ -67,7 +67,7 @@ class LegacyHTTPClient {
  ### Usage
  */
 let adaptee = LegacyHTTPClient()
-let adapter = HTTPClient(adaptee: adaptee)
+let adapter = HTTPClient(adaptee)
 
 adapter.request()
 /*:
