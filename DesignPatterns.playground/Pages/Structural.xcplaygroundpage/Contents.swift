@@ -14,7 +14,7 @@ import Foundation
 import UIKit
 /*:
  Adapter
- ----------
+ --------
  
  The adapter pattern is used to provide a link between two otherwise incompatible types by wrapping the "adaptee" with a class that supports the interface required by the client.
  
@@ -336,8 +336,8 @@ _ = vaultManager.getResourceById("123")
 _ = vaultManager.authenticate(password: "pass")
 _ = vaultManager.getResourceById("1")
 /*:
- 🍬 Virtual Proxy
- ----------------
+ Virtual Proxy
+ --------------
  
  The proxy pattern is used to provide a surrogate or placeholder object, which references an underlying object.
  Virtual proxy is used for loading object on demand.
