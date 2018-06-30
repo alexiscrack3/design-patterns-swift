@@ -12,8 +12,32 @@
 import Swift
 import Foundation
 /*:
- Observer
+ Immutable
  ----------
+ 
+ The immutable pattern is used to allow .
+ 
+ ### Example
+ */
+class ImmutablePerson {
+    private var name: String
+    
+    init(name: String) {
+        self.name = name
+    }
+    
+    func uppercased() -> String {
+        return ImmutablePerson(name: self.name).name.uppercased()
+    }
+}
+/*:
+ ### Usage
+ */
+let person = ImmutablePerson(name: "Foo")
+person.uppercased()
+/*:
+ Observer
+ ---------
  
  The observer pattern is used to allow an object to publish changes to its state.
  Other objects subscribe to be immediately notified of any changes.
