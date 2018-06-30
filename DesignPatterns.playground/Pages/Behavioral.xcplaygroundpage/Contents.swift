@@ -78,7 +78,7 @@ shorts.attach(observer: bar)
 shorts.inStock = true
 /*:
  Strategy
- ----------
+ ---------
     
 The strategy pattern is used to create an interchangeable family of algorithms from which the required process is chosen at run-time.
 
@@ -121,8 +121,8 @@ docFile.save("file")
 let textFile = SaveFileDialog(strategy: TextFileStrategy())
 textFile.save("file")
 /*:
- 🍪 Template
- -----------
+ Template
+ ---------
  
  The Template Pattern is used when two or more implementations of an
  algorithm exist. The template is defined and then built upon with further
