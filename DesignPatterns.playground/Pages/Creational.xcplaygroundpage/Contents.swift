@@ -2,8 +2,8 @@
 //: Creational |
 //: [Structural](Structural)
 /*:
- Creational
- ==========
+Creational
+==========
  
  > In software engineering, creational design patterns are design patterns that deal with object creation mechanisms, trying to create objects in a manner suitable to the situation. The basic form of object creation could result in design problems or in added complexity to the design. Creational design patterns solve this problem by somehow controlling this object creation.
  >
@@ -19,7 +19,7 @@ import UIKit
  The abstract factory pattern is used to provide a client with a set of related or dependant objects.
  The "family" of objects created by the factory are determined at run-time.
  
- ### Example
+### Implementation
  */
 protocol Sedan {
     func drive()
@@ -76,7 +76,7 @@ class FullSizeCarsFactory: Factory {
     }
 }
 /*:
- ### Usage
+### Usage
  */
 let compactCarsFactory = CompactCarsFactory()
 let compactSedan = compactCarsFactory.produceSedan()
@@ -96,7 +96,7 @@ fullsizeHatchback.drive()
  The builder pattern is used to create complex objects with constituent parts that must be created in the same order or using a specific algorithm.
  An external class controls the construction algorithm.
  
- ### Example
+### Implementation
  */
 class Shop {
     func build(builder: VehicleBuilder) -> Vehicle {
@@ -186,7 +186,7 @@ struct Vehicle {
     var doors: Int
 }
 /*:
- ### Usage: Chained builder
+### Usage Chained builder
  */
 let car = CarBuilder()
     .setFrame("Frame")
@@ -196,7 +196,7 @@ let car = CarBuilder()
     .build()
 print(car)
 /*:
- ### Usage: Using a director
+### Usage Using a director
  */
 let motorcycleBuilder = MotorcycleBuilder()
     .setFrame("Frame")
@@ -212,7 +212,7 @@ print(motorcycle)
  
  The factory pattern is used to replace class constructors, abstracting the process of object generation so that the type of the object instantiated can be determined at run-time.
  
- ### Example
+### Implementation
  */
 protocol Shoe {
     var price: Double { get set }
@@ -272,7 +272,7 @@ class AdidasFactory: SportsFactory {
     }
 }
 /*:
- ### Usage
+### Usage
  */
 let creators: [SportsFactory] = [NikeFactory(), AdidasFactory()]
 for creator in creators {
@@ -287,7 +287,7 @@ for creator in creators {
  
  The object pool pattern can offer a significant performance boost; it is most effective in situations where the cost of initializing a class instance is high, the rate of instantiation of a class is high, and the number of instantiations in use at any one time is low.
  
- ### Example
+### Implementation
  */
 struct MagicObject {
     let name: String
@@ -390,7 +390,7 @@ class MagicHouse {
     }
 }
 /*:
- ### Usage
+### Usage
  */
 let queue = DispatchQueue(label: "workQ", attributes: .concurrent)
 let group = DispatchGroup()
@@ -417,7 +417,7 @@ MagicHouse.printReport()
  The prototype pattern is used to instantiate a new object by copying all of the properties of an existing object, creating an independent clone.
  This practise is particularly useful when the construction of a new object is inefficient.
  
- ### Example
+### Implementation
  */
 protocol TextScheme {
     var font: UIFont { get set }
@@ -442,7 +442,7 @@ class Paragraph: TextScheme {
     }
 }
 /*:
- ### Usage
+### Usage
  */
 let base = Paragraph()
 
@@ -461,7 +461,7 @@ second.text = "This is the second paragraph"
  
  The simple factory pattern allows interfaces for creating objects without exposing the object creation logic to the client.
  
- ### Example
+### Implementation
  */
 enum VideoGameType {
     case adventure, combat
@@ -492,7 +492,7 @@ class SimpleFactory {
     }
 }
 /*:
- ### Usage
+### Usage
  */
 let superMario = SimpleFactory.createVideoGame(type: .adventure)
 superMario.play()
@@ -507,7 +507,7 @@ The singleton pattern ensures that only one object of a particular class is ever
 All further references to objects of the singleton class refer to the same underlying instance.
 There are very few applications, do not overuse this pattern!
 
-### Example
+### Implementation
 */
 enum LogLevel: Int {
     case verbose = 0
@@ -568,6 +568,6 @@ class Logger {
     }
 }
 /*:
- ### Usage
+### Usage
  */
 Log.i(tag: .model, message: "info")

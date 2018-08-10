@@ -2,9 +2,9 @@
 //: [Creational](Creational) |
 //: Structural
 /*:
- Structural
- ==========
- 
+Structural
+==========
+
  >In software engineering, structural design patterns are design patterns that ease the design by identifying a simple way to realize relationships between entities.
  >
  >**Source:** [wikipedia.org](https://en.wikipedia.org/wiki/Structural_pattern)
@@ -18,7 +18,7 @@ import UIKit
  
  The adapter pattern is used to provide a link between two otherwise incompatible types by wrapping the "adaptee" with a class that supports the interface required by the client.
  
- ### Example
+### Implementation
  */
 
 class XMLParser {
@@ -65,7 +65,7 @@ class LegacyHTTPClient {
     }
 }
 /*:
- ### Usage
+### Usage
  */
 let adaptee = LegacyHTTPClient()
 let adapter = HTTPClient(adaptee)
@@ -77,7 +77,7 @@ adapter.request()
  -------------------
  The private class data design pattern seeks to reduce exposure of attributes by limiting their visibility.
  
- ### Example
+### Implementation
  */
 private class CircleData {
     var radius: Double
@@ -110,7 +110,7 @@ class Circle {
     }
 }
 /*:
- ### Usage
+### Usage
  */
 let circle = Circle(radius: 3.0, color: .red, origin: .zero)
 print(circle.circumference)
@@ -120,7 +120,7 @@ print(circle.circumference)
  
  The composite pattern is used to create hierarchical, recursive tree structures of related objects where any element of the structure may be accessed and utilised in a standard manner.
  
- ### Example
+### Implementation
  */
 enum ValidatorResult {
     case valid
@@ -246,7 +246,7 @@ struct ValidatorConfigurator {
     }
 }
 /*:
- ### Usage:
+### Usage
  */
 let validatorConfigurator = ValidatorConfigurator.shared
 let emailValidator = validatorConfigurator.emailValidator()
@@ -267,7 +267,7 @@ print(passwordValidator.validate("paSSw0rd"))
  The decorator pattern is used to extend or alter the functionality of objects at run- time by wrapping them in an object of a decorator class.
  This provides a flexible alternative to using inheritance to modify behaviour.
  
- ### Example
+### Implementation
  */
 protocol Element {
     func imagePath() -> String
@@ -317,7 +317,7 @@ final class SizeDecorator: ElementDecorator {
     }
 }
 /*:
- ### Usage:
+### Usage
  */
 var element: Element = Shape()
 print("Path = \(element.imagePath())")
@@ -331,7 +331,7 @@ print("Path = \(element.imagePath())")
  
  The facade pattern is used to define a simplified interface to a more complex subsystem.
  
- ### Example
+### Implementation
  */
 protocol FlightBooking {
     func book()
@@ -382,7 +382,7 @@ class TravelPackageFacade: TravelPackage {
     }
 }
 /*:
- ### Usage
+### Usage
  */
 let travelPackage = TravelPackageFacade()
 travelPackage.book()
@@ -391,7 +391,7 @@ travelPackage.book()
  ----------
  The flyweight pattern is used to minimize memory usage or computational expenses by sharing as much as possible with other similar objects.
  
- ### Example
+### Implementation
  */
 protocol Soldier {
     func render(from location: CGPoint, to newLocation: CGPoint)
@@ -472,7 +472,7 @@ class SoldierFactory {
     }
 }
 /*:
- ### Usage
+### Usage
  */
 let soldierFactory = SoldierFactory.shared
 let infantry = soldierFactory.getSoldier(type: .infantry)
@@ -490,7 +490,7 @@ aviationRadar.moveSoldier(to: CGPoint(x: 1, y: 5))
  The proxy pattern is used to provide a surrogate or placeholder object, which references an underlying object.
  Protection proxy is restricting access.
  
- ### Example
+### Implementation
  */
 struct Resource {
     let id: String
@@ -529,7 +529,7 @@ class VaultManager: Authenticable {
     }
 }
 /*:
- ### Usage
+### Usage
  */
 let vaultManager = VaultManager()
 _ = vaultManager.getResourceById("123")
@@ -543,7 +543,7 @@ _ = vaultManager.getResourceById("1")
  The proxy pattern is used to provide a surrogate or placeholder object, which references an underlying object.
  Virtual proxy is used for loading object on demand.
  
- ### Example
+### Implementation
  */
 protocol Imageable {
     func render() -> UIImage
@@ -578,7 +578,7 @@ class ProxyImage: Imageable {
     }
 }
 /*:
- ### Usage
+### Usage
  */
 let proxyImage = ProxyImage(url: URL(string: "")!)
 _ = proxyImage.render()
