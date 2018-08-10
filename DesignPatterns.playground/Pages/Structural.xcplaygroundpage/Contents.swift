@@ -14,19 +14,19 @@ import Foundation
 import UIKit
 /*:
 ## Adapter
- 
+
  The adapter pattern is used to provide a link between two otherwise incompatible types by wrapping the "adaptee" with a class that supports the interface required by the client.
- 
+
 ### Implementation
  */
 
 class XMLParser {
     private let response: XMLResponse
-    
+
     init(response: XMLResponse) {
         self.response = response
     }
-    
+
     func parse() -> JSONResponse {
         return JSONResponse()
     }
@@ -46,11 +46,11 @@ protocol HTTPRequestTarget {
 
 class HTTPClient: HTTPRequestTarget {
     private let adaptee: LegacyHTTPClient
-    
+
     init(_ adaptee: LegacyHTTPClient) {
         self.adaptee = adaptee
     }
-    
+
     func request() -> JSONResponse {
         let xmlResponse = adaptee.request()
         let jsonResponse = XMLParser(response: xmlResponse)
@@ -75,14 +75,14 @@ adapter.request()
 ##  Private Class Data
 
  The private class data design pattern seeks to reduce exposure of attributes by limiting their visibility.
- 
+
 ### Implementation
  */
 private class CircleData {
     var radius: Double
     var color: UIColor
     var origin: CGPoint
-    
+
     init(radius: Double, color: UIColor, origin: CGPoint) {
         self.radius = radius
         self.color = color
@@ -92,19 +92,19 @@ private class CircleData {
 
 class Circle {
     private let circleData: CircleData
-    
+
     init(radius: Double, color: UIColor, origin: CGPoint) {
         self.circleData = CircleData(radius: radius, color: color, origin: origin)
     }
-    
+
     var circumference: Double {
         return circleData.radius * Double.pi
     }
-    
+
     var diameter: Double {
         return circleData.radius * 2
     }
-    
+
     func draw(graphics: Data) {
     }
 }
@@ -115,9 +115,9 @@ let circle = Circle(radius: 3.0, color: .red, origin: .zero)
 print(circle.circumference)
 /*:
 ##  Composite
- 
+
  The composite pattern is used to create hierarchical, recursive tree structures of related objects where any element of the structure may be accessed and utilised in a standard manner.
- 
+
 ### Implementation
  */
 enum ValidatorResult {
@@ -145,11 +145,11 @@ enum PasswordValidatorError: Error {
 struct EmptyStringValidator: Validator {
     // This error is passed via the initializer to allow this validator to be reused
     private let invalidError: Error
-    
+
     init(invalidError: Error) {
         self.invalidError = invalidError
     }
-    
+
     func validate(_ value: String) -> ValidatorResult {
         if value.isEmpty {
             return .invalid(error: invalidError)
@@ -162,9 +162,9 @@ struct EmptyStringValidator: Validator {
 struct EmailFormatValidator: Validator {
     func validate(_ value: String) -> ValidatorResult {
         let magicEmailRegexStolenFromTheInternet = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
-        
+
         let emailTest = NSPredicate(format:"SELF MATCHES %@", magicEmailRegexStolenFromTheInternet)
-        
+
         if emailTest.evaluate(with: value) {
             return .valid
         } else {
@@ -186,9 +186,9 @@ struct PasswordLengthValidator: Validator {
 struct UppercaseLetterValidator: Validator {
     func validate(_ value: String) -> ValidatorResult {
         let uppercaseLetterRegex = ".*[A-Z]+.*"
-        
+
         let uppercaseLetterTest = NSPredicate(format:"SELF MATCHES %@", uppercaseLetterRegex)
-        
+
         if uppercaseLetterTest.evaluate(with: value) {
             return .valid
         } else {
@@ -199,11 +199,11 @@ struct UppercaseLetterValidator: Validator {
 
 struct CompositeValidator: Validator {
     private let validators: [Validator]
-    
+
     init(validators: Validator...) {
         self.validators = validators
     }
-    
+
     func validate(_ value: String) -> ValidatorResult {
         for validator in validators {
             switch validator.validate(value) {
@@ -219,25 +219,25 @@ struct CompositeValidator: Validator {
 
 struct ValidatorConfigurator {
     static let shared = ValidatorConfigurator()
-    
+
     func emailValidator() -> Validator {
         return CompositeValidator(validators: emptyEmailStringValidator(),
                                   EmailFormatValidator())
     }
-    
+
     func passwordValidator() -> Validator {
         return CompositeValidator(validators: emptyPasswordStringValidator(),
                                   passwordStrengthValidator())
     }
-    
+
     private func emptyEmailStringValidator() -> Validator {
         return EmptyStringValidator(invalidError: EmailValidatorError.empty)
     }
-    
+
     private func emptyPasswordStringValidator() -> Validator {
         return EmptyStringValidator(invalidError: PasswordValidatorError.empty)
     }
-    
+
     private func passwordStrengthValidator() -> Validator {
         return CompositeValidator(validators: PasswordLengthValidator(),
                                   UppercaseLetterValidator())
@@ -260,10 +260,10 @@ print(passwordValidator.validate("passw0rd"))
 print(passwordValidator.validate("paSSw0rd"))
 /*:
 ## Decorator
- 
+
  The decorator pattern is used to extend or alter the functionality of objects at run- time by wrapping them in an object of a decorator class.
  This provides a flexible alternative to using inheritance to modify behaviour.
- 
+
 ### Implementation
  */
 protocol Element {
@@ -284,11 +284,11 @@ class Object: Element {
 
 class ElementDecorator: Element {
     private let decoratedElement: Element
-    
+
     required init(decoratedElement: Element) {
         self.decoratedElement = decoratedElement
     }
-    
+
     func imagePath() -> String {
         return decoratedElement.imagePath()
     }
@@ -298,7 +298,7 @@ final class ColorDecorator: ElementDecorator {
     required init(decoratedElement: Element) {
         super.init(decoratedElement: decoratedElement)
     }
-    
+
     override func imagePath() -> String {
         return "color-" + super.imagePath()
     }
@@ -308,7 +308,7 @@ final class SizeDecorator: ElementDecorator {
     required init(decoratedElement: Element) {
         super.init(decoratedElement: decoratedElement)
     }
-    
+
     override func imagePath() -> String {
         return "size-" + super.imagePath()
     }
@@ -324,9 +324,9 @@ element = SizeDecorator(decoratedElement: element)
 print("Path = \(element.imagePath())")
 /*:
 ## Façade
- 
+
  The facade pattern is used to define a simplified interface to a more complex subsystem.
- 
+
 ### Implementation
  */
 protocol FlightBooking {
@@ -367,13 +367,13 @@ class TravelPackageFacade: TravelPackage {
     func book() {
         let trasferBooking = TrasferBookingSystem()
         trasferBooking.book()
-        
+
         let hotelBooking = HotelBookingSystem()
         hotelBooking.book()
-        
+
         let flightBooking = FlightBookingSystem()
         flightBooking.book()
-        
+
         print("Travel package booked successfully")
     }
 }
@@ -386,7 +386,7 @@ travelPackage.book()
 ## Flyweight
 
  The flyweight pattern is used to minimize memory usage or computational expenses by sharing as much as possible with other similar objects.
- 
+
 ### Implementation
  */
 protocol Soldier {
@@ -395,11 +395,11 @@ protocol Soldier {
 
 class Infantry: Soldier {
     private let modelData: Data
-    
+
     init(modelData: Data) {
         self.modelData = modelData
     }
-    
+
     func render(from location: CGPoint, to newLocation: CGPoint) {
         // Remove rendering from original location
         // Graphically render at new location
@@ -408,11 +408,11 @@ class Infantry: Soldier {
 
 class Aviation: Soldier {
     private let modelData: Data
-    
+
     init(modelData: Data) {
         self.modelData = modelData
     }
-    
+
     func render(from location: CGPoint, to newLocation: CGPoint) {
         // Remove rendering from original location
         // Graphically render at new location
@@ -422,12 +422,12 @@ class Aviation: Soldier {
 class Radar {
     var currentLocation: CGPoint
     let soldier: Soldier
-    
+
     init(currentLocation: CGPoint, soldier: Soldier) {
         self.currentLocation = currentLocation
         self.soldier = soldier
     }
-    
+
     func moveSoldier(to nextLocation: CGPoint) {
         soldier.render(from: currentLocation, to: nextLocation)
         currentLocation = nextLocation
@@ -439,12 +439,12 @@ class SoldierFactory {
         case infantry
         case aviation
     }
-    
+
     private var availableSoldiers =  [SoldierType: Soldier]()
     static let shared = SoldierFactory()
-    
+
     private init() { }
-    
+
     private func createSoldier(of type: SoldierType) -> Soldier {
         switch type {
         case .infantry:
@@ -457,7 +457,7 @@ class SoldierFactory {
             return infantry
         }
     }
-    
+
     func getSoldier(type: SoldierType) -> Soldier {
         if let soldier = availableSoldiers[type] {
             return soldier
@@ -481,10 +481,10 @@ aviation = soldierFactory.getSoldier(type: .aviation) // Same soldier
 aviationRadar.moveSoldier(to: CGPoint(x: 1, y: 5))
 /*:
 ## Protection Proxy
- 
+
  The proxy pattern is used to provide a surrogate or placeholder object, which references an underlying object.
  Protection proxy is restricting access.
- 
+
 ### Implementation
  */
 struct Resource {
@@ -504,22 +504,22 @@ class ResourceManager: Authenticable {
 
 class VaultManager: Authenticable {
     private var resourceManager: ResourceManager!
-    
+
     func authenticate(password: String) -> Bool {
         guard password == "pass" else {
             return false
         }
-        
+
         resourceManager = ResourceManager()
-        
+
         return true
     }
-    
+
     func getResourceById(_ id: String) -> Resource? {
         guard resourceManager != nil else {
             return nil
         }
-        
+
         return resourceManager.getResourceById(id)
     }
 }
@@ -533,10 +533,10 @@ _ = vaultManager.authenticate(password: "pass")
 _ = vaultManager.getResourceById("1")
 /*:
 ## Virtual Proxy
- 
+
  The proxy pattern is used to provide a surrogate or placeholder object, which references an underlying object.
  Virtual proxy is used for loading object on demand.
- 
+
 ### Implementation
  */
 protocol Imageable {
@@ -545,15 +545,15 @@ protocol Imageable {
 
 public class RealImage: Imageable {
     private var image: UIImage!
-    
+
     init(url: URL) {
         loadImageURL(url)
     }
-    
+
     private func loadImageURL(_ url: URL) {
         image = UIImage()
     }
-    
+
     func render() -> UIImage {
         return image
     }
@@ -562,11 +562,11 @@ public class RealImage: Imageable {
 class ProxyImage: Imageable {
     private let url: URL
     private lazy var realImage = RealImage(url: self.url)
-    
+
     init(url: URL) {
         self.url = url
     }
-    
+
     func render() -> UIImage {
         return realImage.render()
     }
