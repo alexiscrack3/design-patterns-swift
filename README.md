@@ -1055,7 +1055,7 @@ protocol Factory {
 }
 
 class CompactCarsFactory: Factory {
-    func produceSedan() -> Sedan{
+    func produceSedan() -> Sedan {
         return CompactSedan()
     }
 
