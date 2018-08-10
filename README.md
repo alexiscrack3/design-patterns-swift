@@ -1058,6 +1058,7 @@ class CompactCarsFactory: Factory {
     func produceSedan() -> Sedan{
         return CompactSedan()
     }
+
     func produceHatchback() -> Hatchback {
         return CompactHatchback()
     }
