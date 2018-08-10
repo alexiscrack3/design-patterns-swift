@@ -1068,6 +1068,7 @@ class FullSizeCarsFactory: Factory {
     func produceSedan() -> Sedan {
         return FullSizeSedan()
     }
+
     func produceHatchback() -> Hatchback {
         return FullSizeHatchback()
     }
