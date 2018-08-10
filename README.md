@@ -98,7 +98,7 @@ remoteControl.turnOn()
 
 #### Chain Of Responsibility Implementation
 
-```swifth
+```swift
 enum Denomination: Int {
     case ten = 10
     case twenty = 20
