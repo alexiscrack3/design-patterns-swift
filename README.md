@@ -17,7 +17,7 @@ development paradigms.
  [Structural](Structural)
 ```
 
-### Behavioral
+## Behavioral
 
  >In software engineering, behavioral design patterns are design patterns that identify common communication patterns between objects and realize these patterns. By doing so, these patterns increase flexibility in carrying out this communication.
  >
@@ -995,32 +995,28 @@ let names = planets.map { (planet: Planet) -> String in
     planet.accept(visitor: visitor)
     return visitor.name
 }
+```
 
-
-#MEH
-//: [Behavioral](Behavioral) |
-//: Creational |
-//: [Structural](Structural)
-/*:
-Creational
-==========
+## Creational
 
  > In software engineering, creational design patterns are design patterns that deal with object creation mechanisms, trying to create objects in a manner suitable to the situation. The basic form of object creation could result in design problems or in added complexity to the design. Creational design patterns solve this problem by somehow controlling this object creation.
  >
  >**Source:** [wikipedia.org](https://en.wikipedia.org/wiki/Creational_pattern)
- */
+
+```swift
 import Swift
 import Foundation
 import UIKit
-/*:
- Abstract Factory
- -----------------
+```
+
+### Abstract Factory
 
  The abstract factory pattern is used to provide a client with a set of related or dependant objects.
  The "family" of objects created by the factory are determined at run-time.
- 
-### Implementation
- */
+
+#### Abstract Factory Implementation
+
+```swift
 protocol Sedan {
     func drive()
 }
@@ -1075,9 +1071,11 @@ class FullSizeCarsFactory: Factory {
         return FullSizeHatchback()
     }
 }
-/*:
-### Usage
- */
+```
+
+#### Abstract Factory Usage
+
+```swift
 let compactCarsFactory = CompactCarsFactory()
 let compactSedan = compactCarsFactory.produceSedan()
 let compactHatchback = compactCarsFactory.produceHatchback()
@@ -1089,15 +1087,16 @@ let fullsizeSedan = fullSizeCarsFactory.produceSedan()
 let fullsizeHatchback = fullSizeCarsFactory.produceHatchback()
 fullsizeSedan.drive()
 fullsizeHatchback.drive()
-/*:
- Builder
- ----------
+```
+
+### Builder
 
  The builder pattern is used to create complex objects with constituent parts that must be created in the same order or using a specific algorithm.
  An external class controls the construction algorithm.
- 
-### Implementation
- */
+
+#### Builder Implementation
+
+```swift
 class Shop {
     func build(builder: VehicleBuilder) -> Vehicle {
         return builder.build()
@@ -1109,7 +1108,7 @@ protocol VehicleBuilder {
     var engine: String? { get }
     var wheels: Int? { get }
     var doors: Int? { get }
-    
+
     func setFrame(_ frame: String) -> VehicleBuilder
     func setEngine(_ engine: String) -> VehicleBuilder
     func setWheels(_ frame: Int) -> VehicleBuilder
@@ -1122,27 +1121,27 @@ class CarBuilder: VehicleBuilder {
     var engine: String?
     var wheels: Int?
     var doors: Int?
-    
+
     func setFrame(_ frame: String) -> VehicleBuilder {
         self.frame = frame
         return self
     }
-    
+
     func setEngine(_ engine: String) -> VehicleBuilder {
         self.engine = engine
         return self
     }
-    
+
     func setWheels(_ wheels: Int) -> VehicleBuilder {
         self.wheels = wheels
         return self
     }
-    
+
     func setDoors(_ doors: Int) -> VehicleBuilder {
         self.doors = doors
         return self
     }
-    
+
     func build() -> Vehicle {
         return Vehicle(frame: self.frame ?? "", engine: self.engine ?? "", wheels: self.wheels ?? 0, doors: self.doors ?? 0)
     }
@@ -1153,27 +1152,27 @@ class MotorcycleBuilder: VehicleBuilder {
     var engine: String?
     var wheels: Int?
     var doors: Int?
-    
+
     func setFrame(_ frame: String) -> VehicleBuilder {
         self.frame = "Motorcycle - " + frame
         return self
     }
-    
+
     func setEngine(_ engine: String) -> VehicleBuilder {
         self.engine = "Motorcycle - " + engine
         return self
     }
-    
+
     func setWheels(_ wheels: Int) -> VehicleBuilder {
         self.wheels = wheels
         return self
     }
-    
+
     func setDoors(_ doors: Int) -> VehicleBuilder {
         self.doors = doors
         return self
     }
-    
+
     func build() -> Vehicle {
         return Vehicle(frame: self.frame ?? "", engine: self.engine ?? "", wheels: self.wheels ?? 0, doors: self.doors ?? 0)
     }
@@ -1185,9 +1184,11 @@ struct Vehicle {
     var wheels: Int
     var doors: Int
 }
-/*:
-### Usage Chained builder
- */
+```
+
+#### Chained builder Usage
+
+```swift
 let car = CarBuilder()
     .setFrame("Frame")
     .setEngine("Engine")
@@ -1195,9 +1196,11 @@ let car = CarBuilder()
     .setDoors(4)
     .build()
 print(car)
-/*:
-### Usage Using a director
- */
+```
+
+#### Using a director Usage
+
+```swift
 let motorcycleBuilder = MotorcycleBuilder()
     .setFrame("Frame")
     .setEngine("Engine")
@@ -1206,14 +1209,15 @@ let motorcycleBuilder = MotorcycleBuilder()
 
 let motorcycle = Shop().build(builder: motorcycleBuilder)
 print(motorcycle)
-/*:
- Factory Method
- ---------------
+```
+
+### Factory Method
 
  The factory pattern is used to replace class constructors, abstracting the process of object generation so that the type of the object instantiated can be determined at run-time.
- 
-### Implementation
- */
+
+#### Factory Method Implementation
+
+```swift
 protocol Shoe {
     var price: Double { get set }
     var weight: Float { get set }
@@ -1248,11 +1252,11 @@ class NikeFactory: SportsFactory {
     func makeShoe() -> Shoe {
         return RunningShoe(price: 100.0, weight: 11.4, type: "Neutral")
     }
-    
+
     func makeSoccerBall() -> Ball {
         return SoccerBall(price: 80)
     }
-    
+
     func makeBasketballBall() -> Ball {
         return BasketballBall(price: 50)
     }
@@ -1262,18 +1266,20 @@ class AdidasFactory: SportsFactory {
     func makeShoe() -> Shoe {
         return RunningShoe(price: 200.0, weight: 11.0, type: "Neutral")
     }
-    
+
     func makeSoccerBall() -> Ball {
         return SoccerBall(price: 100)
     }
-    
+
     func makeBasketballBall() -> Ball {
         return BasketballBall(price: 60)
     }
 }
-/*:
-### Usage
- */
+```
+
+#### Factory Method Usage
+
+```swift
 let creators: [SportsFactory] = [NikeFactory(), AdidasFactory()]
 for creator in creators {
     let soccerBall = creator.makeSoccerBall()
@@ -1281,14 +1287,15 @@ for creator in creators {
     print(soccerBall.price)
     print(basketballBall.price)
 }
-/*:
- Object Pool
- ------------
+```
+
+### Object Pool
 
  The object pool pattern can offer a significant performance boost; it is most effective in situations where the cost of initializing a class instance is high, the rate of instantiation of a class is high, and the number of instantiations in use at any one time is low.
- 
-### Implementation
- */
+
+#### Object Pool Implementation
+
+```swift
 struct MagicObject {
     let name: String
     let serialNumber: Int
@@ -1300,7 +1307,7 @@ class Pool<T> {
     var magicObjects = [T]()
     private let arrayQ = DispatchQueue(label: "array")
     private let semaphore: DispatchSemaphore
-    
+
     init(items: [T]) {
         magicObjects.reserveCapacity(magicObjects.count)
         for item in items {
@@ -1309,7 +1316,7 @@ class Pool<T> {
         // create a counter semaphore for the available items in the pool
         semaphore = DispatchSemaphore(value: items.count)
     }
-    
+
     func getFromPool() -> T? {
         var result: T?
         // the semaphore count is decreased each time when the wait is called. If the count is 0, the function will block
@@ -1322,7 +1329,7 @@ class Pool<T> {
         }
         return result
     }
-    
+
     func returnToPool(item: T) {
         arrayQ.sync {
             self.magicObjects.append(item)
@@ -1344,7 +1351,7 @@ class MagicHouse {
     private let pool: Pool<MagicObject>
     static var sharedInstance = MagicHouse()
     static var magicDebtInfo: [(String, Int, String)] = []
-    
+
     private init() {
         var magicObjects:[MagicObject] = []
         2.times {
@@ -1355,7 +1362,7 @@ class MagicHouse {
         }
         self.pool = Pool(items: magicObjects)
     }
-    
+
     static func lendMagicObject(occupier: String) -> MagicObject? {
         var magicObject = sharedInstance.pool.getFromPool()
         if magicObject != nil {
@@ -1366,7 +1373,7 @@ class MagicHouse {
         }
         return magicObject
     }
-    
+
     static func receiveMagicObject(obj: MagicObject) {
         magicDebtInfo = magicDebtInfo.filter {
             $0.0 != obj.name && $0.1 != obj.serialNumber
@@ -1374,13 +1381,13 @@ class MagicHouse {
         sharedInstance.pool.returnToPool(item: obj)
         print("\(obj.occupier.last!) returning \(obj.name) #\(obj.serialNumber)")
     }
-    
+
     static func printReport() {
         print("\nShow Report: Magic House currently has \(sharedInstance.pool.magicObjects.count) magic object(s) in stock")
         sharedInstance.pool.magicObjects.forEach {
             print("\($0.name) #\($0.serialNumber) \nBorrowed \($0.borrowedCount) time(s) by \($0.occupier)")
         }
-        
+
         if magicDebtInfo.count > 0 {
             print("\nMagic Objects currently lent out:")
             magicDebtInfo.forEach {
@@ -1389,9 +1396,11 @@ class MagicHouse {
         }
     }
 }
-/*:
-### Usage
- */
+```
+
+#### Object Pool Usage
+
+```swift
 let queue = DispatchQueue(label: "workQ", attributes: .concurrent)
 let group = DispatchGroup()
 
@@ -1410,15 +1419,16 @@ _ = group.wait(timeout: .distantFuture)
 _ = MagicHouse.lendMagicObject(occupier: "William")
 _ = MagicHouse.lendMagicObject(occupier: "Tato")
 MagicHouse.printReport()
-/*:
- Prototype
- ----------
+```
+
+### Prototype
 
  The prototype pattern is used to instantiate a new object by copying all of the properties of an existing object, creating an independent clone.
  This practise is particularly useful when the construction of a new object is inefficient.
- 
-### Implementation
- */
+
+#### Prototype Implementation
+
+```swift
 protocol TextScheme {
     var font: UIFont { get set }
     var color: UIColor { get set }
@@ -1430,20 +1440,22 @@ class Paragraph: TextScheme {
     var font: UIFont
     var color: UIColor
     var text: String
-    
+
     init(font: UIFont = UIFont.systemFont(ofSize: 12), color: UIColor = .darkText, text: String = "") {
         self.font = font
         self.color = color
         self.text = text
     }
-    
+
     func clone() -> Paragraph {
         return Paragraph(font: self.font, color: self.color, text: self.text)
     }
 }
-/*:
-### Usage
- */
+````
+
+#### Prototype Usage
+
+```swift
 let base = Paragraph()
 
 let title = base.clone()
@@ -1455,14 +1467,15 @@ first.text = "This is the first paragraph"
 
 let second = base.clone()
 second.text = "This is the second paragraph"
-/*:
- Simple Factory
- ---------------
+```
+
+### Simple Factory
 
  The simple factory pattern allows interfaces for creating objects without exposing the object creation logic to the client.
- 
-### Implementation
- */
+
+#### Simple Factory Implementation
+
+```swift
 enum VideoGameType {
     case adventure, combat
 }
@@ -1491,24 +1504,27 @@ class SimpleFactory {
         }
     }
 }
-/*:
-### Usage
- */
+```
+
+#### Simple Factory Usage
+
+```swift
 let superMario = SimpleFactory.createVideoGame(type: .adventure)
 superMario.play()
 
 let streetFighter = SimpleFactory.createVideoGame(type: .combat)
 streetFighter.play()
-/*:
- Singleton
- ----------
+```
+
+### Singleton
 
 The singleton pattern ensures that only one object of a particular class is ever created.
 All further references to objects of the singleton class refer to the same underlying instance.
 There are very few applications, do not overuse this pattern!
 
-### Implementation
-*/
+#### Singleton Implementation
+
+```swift
 enum LogLevel: Int {
     case verbose = 0
     case debug = 1
@@ -1536,19 +1552,19 @@ extension Loggable {
     static func v(tag: LogTag, message: String) {
         Logger.default.log(level: .verbose, tag: tag, message: message)
     }
-    
+
     static func d(tag: LogTag, message: String) {
         Logger.default.log(level: .debug, tag: tag, message: message)
     }
-    
+
     static func i(tag: LogTag, message: String) {
         Logger.default.log(level: .info, tag: tag, message: message)
     }
-    
+
     static func w(tag: LogTag, message: String) {
         Logger.default.log(level: .warning, tag: tag, message: message)
     }
-    
+
     static func e(tag: LogTag, message: String) {
         Logger.default.log(level: .error, tag: tag, message: message)
     }
@@ -1558,50 +1574,49 @@ class Log: Loggable {}
 
 class Logger {
     static let `default` = Logger()
-    
+
     private init() {
         // Private initialization to ensure just one instance is created.
     }
-    
+
     func log(level: LogLevel, tag: LogTag, message: String) {
         print("\(level.rawValue): ", message)
     }
 }
-/*:
-### Usage
- */
+```
+
+#### Singleton Usage
+
+```swift
 Log.i(tag: .model, message: "info")
-#MEH2
-//: [Behavioral](Behavioral) |
-//: [Creational](Creational) |
-//: Structural
-/*:
-Structural
-==========
+```
+
+## Structural
 
  >In software engineering, structural design patterns are design patterns that ease the design by identifying a simple way to realize relationships between entities.
  >
  >**Source:** [wikipedia.org](https://en.wikipedia.org/wiki/Structural_pattern)
- */
+
+```swift
 import Swift
 import Foundation
 import UIKit
-/*:
- Adapter
- --------
+```
+
+### Adapter
 
  The adapter pattern is used to provide a link between two otherwise incompatible types by wrapping the "adaptee" with a class that supports the interface required by the client.
- 
-### Implementation
- */
 
+#### Adapter Implementation
+
+```swift
 class XMLParser {
     private let response: XMLResponse
-    
+
     init(response: XMLResponse) {
         self.response = response
     }
-    
+
     func parse() -> JSONResponse {
         return JSONResponse()
     }
@@ -1621,11 +1636,11 @@ protocol HTTPRequestTarget {
 
 class HTTPClient: HTTPRequestTarget {
     private let adaptee: LegacyHTTPClient
-    
+
     init(_ adaptee: LegacyHTTPClient) {
         self.adaptee = adaptee
     }
-    
+
     func request() -> JSONResponse {
         let xmlResponse = adaptee.request()
         let jsonResponse = XMLParser(response: xmlResponse)
@@ -1638,27 +1653,29 @@ class LegacyHTTPClient {
         return XMLResponse()
     }
 }
-/*:
-### Usage
- */
+```
+
+#### Adapter Usage
+
+```swift
 let adaptee = LegacyHTTPClient()
 let adapter = HTTPClient(adaptee)
 
 adapter.request()
+```
 
-/*:
- Private Class Data
- -------------------
+### Private Class Data
 
 The private class data design pattern seeks to reduce exposure of attributes by limiting their visibility.
- 
-### Implementation
- */
+
+#### Private Class Data Implementation
+
+```swift
 private class CircleData {
     var radius: Double
     var color: UIColor
     var origin: CGPoint
-    
+
     init(radius: Double, color: UIColor, origin: CGPoint) {
         self.radius = radius
         self.color = color
@@ -1668,35 +1685,38 @@ private class CircleData {
 
 class Circle {
     private let circleData: CircleData
-    
+
     init(radius: Double, color: UIColor, origin: CGPoint) {
         self.circleData = CircleData(radius: radius, color: color, origin: origin)
     }
-    
+
     var circumference: Double {
         return circleData.radius * Double.pi
     }
-    
+
     var diameter: Double {
         return circleData.radius * 2
     }
-    
+
     func draw(graphics: Data) {
     }
 }
-/*:
-### Usage
- */
+```
+
+#### Private Class Data Usage
+
+```swift
 let circle = Circle(radius: 3.0, color: .red, origin: .zero)
 print(circle.circumference)
-/*:
- Composite
- ----------
+```
+
+### Composite
 
  The composite pattern is used to create hierarchical, recursive tree structures of related objects where any element of the structure may be accessed and utilised in a standard manner.
- 
-### Implementation
- */
+
+#### Composite Implementation
+
+```swift
 enum ValidatorResult {
     case valid
     case invalid(error: Error)
@@ -1722,11 +1742,11 @@ enum PasswordValidatorError: Error {
 struct EmptyStringValidator: Validator {
     // This error is passed via the initializer to allow this validator to be reused
     private let invalidError: Error
-    
+
     init(invalidError: Error) {
         self.invalidError = invalidError
     }
-    
+
     func validate(_ value: String) -> ValidatorResult {
         if value.isEmpty {
             return .invalid(error: invalidError)
@@ -1739,9 +1759,9 @@ struct EmptyStringValidator: Validator {
 struct EmailFormatValidator: Validator {
     func validate(_ value: String) -> ValidatorResult {
         let magicEmailRegexStolenFromTheInternet = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
-        
+
         let emailTest = NSPredicate(format:"SELF MATCHES %@", magicEmailRegexStolenFromTheInternet)
-        
+
         if emailTest.evaluate(with: value) {
             return .valid
         } else {
@@ -1763,9 +1783,9 @@ struct PasswordLengthValidator: Validator {
 struct UppercaseLetterValidator: Validator {
     func validate(_ value: String) -> ValidatorResult {
         let uppercaseLetterRegex = ".*[A-Z]+.*"
-        
+
         let uppercaseLetterTest = NSPredicate(format:"SELF MATCHES %@", uppercaseLetterRegex)
-        
+
         if uppercaseLetterTest.evaluate(with: value) {
             return .valid
         } else {
@@ -1776,11 +1796,11 @@ struct UppercaseLetterValidator: Validator {
 
 struct CompositeValidator: Validator {
     private let validators: [Validator]
-    
+
     init(validators: Validator...) {
         self.validators = validators
     }
-    
+
     func validate(_ value: String) -> ValidatorResult {
         for validator in validators {
             switch validator.validate(value) {
@@ -1796,33 +1816,35 @@ struct CompositeValidator: Validator {
 
 struct ValidatorConfigurator {
     static let shared = ValidatorConfigurator()
-    
+
     func emailValidator() -> Validator {
         return CompositeValidator(validators: emptyEmailStringValidator(),
                                   EmailFormatValidator())
     }
-    
+
     func passwordValidator() -> Validator {
         return CompositeValidator(validators: emptyPasswordStringValidator(),
                                   passwordStrengthValidator())
     }
-    
+
     private func emptyEmailStringValidator() -> Validator {
         return EmptyStringValidator(invalidError: EmailValidatorError.empty)
     }
-    
+
     private func emptyPasswordStringValidator() -> Validator {
         return EmptyStringValidator(invalidError: PasswordValidatorError.empty)
     }
-    
+
     private func passwordStrengthValidator() -> Validator {
         return CompositeValidator(validators: PasswordLengthValidator(),
                                   UppercaseLetterValidator())
     }
 }
-/*:
-### Usage
- */
+```
+
+#### Composite Usage
+
+```swift
 let validatorConfigurator = ValidatorConfigurator.shared
 let emailValidator = validatorConfigurator.emailValidator()
 let passwordValidator = validatorConfigurator.passwordValidator()
@@ -1835,15 +1857,16 @@ print(passwordValidator.validate(""))
 print(passwordValidator.validate("psS$"))
 print(passwordValidator.validate("passw0rd"))
 print(passwordValidator.validate("paSSw0rd"))
-/*:
- Decorator
- ----------
+```
+
+#### Decorator
 
  The decorator pattern is used to extend or alter the functionality of objects at run- time by wrapping them in an object of a decorator class.
  This provides a flexible alternative to using inheritance to modify behaviour.
- 
-### Implementation
- */
+
+#### Decorator Implementation
+
+```swift
 protocol Element {
     func imagePath() -> String
 }
@@ -1862,11 +1885,11 @@ class Object: Element {
 
 class ElementDecorator: Element {
     private let decoratedElement: Element
-    
+
     required init(decoratedElement: Element) {
         self.decoratedElement = decoratedElement
     }
-    
+
     func imagePath() -> String {
         return decoratedElement.imagePath()
     }
@@ -1876,7 +1899,7 @@ final class ColorDecorator: ElementDecorator {
     required init(decoratedElement: Element) {
         super.init(decoratedElement: decoratedElement)
     }
-    
+
     override func imagePath() -> String {
         return "color-" + super.imagePath()
     }
@@ -1886,28 +1909,31 @@ final class SizeDecorator: ElementDecorator {
     required init(decoratedElement: Element) {
         super.init(decoratedElement: decoratedElement)
     }
-    
+
     override func imagePath() -> String {
         return "size-" + super.imagePath()
     }
 }
-/*:
-### Usage
- */
+```
+
+#### Decorator Usage
+
+```swift
 var element: Element = Shape()
 print("Path = \(element.imagePath())")
 element = ColorDecorator(decoratedElement: element)
 print("Path = \(element.imagePath())")
 element = SizeDecorator(decoratedElement: element)
 print("Path = \(element.imagePath())")
-/*:
- Façade
- -------
+```
+
+### Façade
 
  The facade pattern is used to define a simplified interface to a more complex subsystem.
- 
-### Implementation
- */
+
+#### Façade Implementation
+
+```swift
 protocol FlightBooking {
     func book()
 }
@@ -1946,40 +1972,43 @@ class TravelPackageFacade: TravelPackage {
     func book() {
         let trasferBooking = TrasferBookingSystem()
         trasferBooking.book()
-        
+
         let hotelBooking = HotelBookingSystem()
         hotelBooking.book()
-        
+
         let flightBooking = FlightBookingSystem()
         flightBooking.book()
-        
+
         print("Travel package booked successfully")
     }
 }
-/*:
-### Usage
- */
+```
+
+#### Façade Usage
+
+```swift
 let travelPackage = TravelPackageFacade()
 travelPackage.book()
-/*:
- Flyweight
- ----------
+```
+
+### Flyweight
 
 The flyweight pattern is used to minimize memory usage or computational expenses by sharing as much as possible with other similar objects.
- 
-### Implementation
- */
+
+#### Flyweight Implementation
+
+```swift
 protocol Soldier {
     func render(from location: CGPoint, to newLocation: CGPoint)
 }
 
 class Infantry: Soldier {
     private let modelData: Data
-    
+
     init(modelData: Data) {
         self.modelData = modelData
     }
-    
+
     func render(from location: CGPoint, to newLocation: CGPoint) {
         // Remove rendering from original location
         // Graphically render at new location
@@ -1988,11 +2017,11 @@ class Infantry: Soldier {
 
 class Aviation: Soldier {
     private let modelData: Data
-    
+
     init(modelData: Data) {
         self.modelData = modelData
     }
-    
+
     func render(from location: CGPoint, to newLocation: CGPoint) {
         // Remove rendering from original location
         // Graphically render at new location
@@ -2002,12 +2031,12 @@ class Aviation: Soldier {
 class Radar {
     var currentLocation: CGPoint
     let soldier: Soldier
-    
+
     init(currentLocation: CGPoint, soldier: Soldier) {
         self.currentLocation = currentLocation
         self.soldier = soldier
     }
-    
+
     func moveSoldier(to nextLocation: CGPoint) {
         soldier.render(from: currentLocation, to: nextLocation)
         currentLocation = nextLocation
@@ -2019,12 +2048,12 @@ class SoldierFactory {
         case infantry
         case aviation
     }
-    
+
     private var availableSoldiers =  [SoldierType: Soldier]()
     static let shared = SoldierFactory()
-    
+
     private init() { }
-    
+
     private func createSoldier(of type: SoldierType) -> Soldier {
         switch type {
         case .infantry:
@@ -2037,7 +2066,7 @@ class SoldierFactory {
             return infantry
         }
     }
-    
+
     func getSoldier(type: SoldierType) -> Soldier {
         if let soldier = availableSoldiers[type] {
             return soldier
@@ -2047,9 +2076,11 @@ class SoldierFactory {
         }
     }
 }
-/*:
-### Usage
- */
+```
+
+#### Flyweight Usage
+
+```swift
 let soldierFactory = SoldierFactory.shared
 let infantry = soldierFactory.getSoldier(type: .infantry)
 let infantryRadar = Radar(currentLocation: .zero, soldier: infantry)
@@ -2059,15 +2090,16 @@ var aviation = soldierFactory.getSoldier(type: .aviation)
 let aviationRadar = Radar(currentLocation: CGPoint(x: 5, y: 10), soldier: aviation)
 aviation = soldierFactory.getSoldier(type: .aviation) // Same soldier
 aviationRadar.moveSoldier(to: CGPoint(x: 1, y: 5))
-/*:
- Protection Proxy
- -----------------
+```
+
+### Protection Proxy
 
  The proxy pattern is used to provide a surrogate or placeholder object, which references an underlying object.
  Protection proxy is restricting access.
- 
-### Implementation
- */
+
+#### Protection Proxy Implementation
+
+```swift
 struct Resource {
     let id: String
 }
@@ -2085,57 +2117,60 @@ class ResourceManager: Authenticable {
 
 class VaultManager: Authenticable {
     private var resourceManager: ResourceManager!
-    
+
     func authenticate(password: String) -> Bool {
         guard password == "pass" else {
             return false
         }
-        
+
         resourceManager = ResourceManager()
-        
+
         return true
     }
-    
+
     func getResourceById(_ id: String) -> Resource? {
         guard resourceManager != nil else {
             return nil
         }
-        
+
         return resourceManager.getResourceById(id)
     }
 }
-/*:
-### Usage
- */
+```
+
+#### Protection Proxy Usage
+
+```swift
 let vaultManager = VaultManager()
 _ = vaultManager.getResourceById("123")
 
 _ = vaultManager.authenticate(password: "pass")
 _ = vaultManager.getResourceById("1")
-/*:
- Virtual Proxy
- --------------
+```
+
+### Virtual Proxy
 
  The proxy pattern is used to provide a surrogate or placeholder object, which references an underlying object.
  Virtual proxy is used for loading object on demand.
- 
-### Implementation
- */
+
+#### Virtual Proxy Implementation
+
+```swift
 protocol Imageable {
     func render() -> UIImage
 }
 
 public class RealImage: Imageable {
     private var image: UIImage!
-    
+
     init(url: URL) {
         loadImageURL(url)
     }
-    
+
     private func loadImageURL(_ url: URL) {
         image = UIImage()
     }
-    
+
     func render() -> UIImage {
         return image
     }
@@ -2144,17 +2179,20 @@ public class RealImage: Imageable {
 class ProxyImage: Imageable {
     private let url: URL
     private lazy var realImage = RealImage(url: self.url)
-    
+
     init(url: URL) {
         self.url = url
     }
-    
+
     func render() -> UIImage {
         return realImage.render()
     }
 }
-/*:
-### Usage
- */
+```
+
+#### Virtual Proxy Usage
+
+```swift
 let proxyImage = ProxyImage(url: URL(string: "")!)
 _ = proxyImage.render()
+```
