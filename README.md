@@ -1004,7 +1004,7 @@ let names = planets.map { (planet: Planet) -> String in
 /*:
 Creational
 ==========
- 
+
  > In software engineering, creational design patterns are design patterns that deal with object creation mechanisms, trying to create objects in a manner suitable to the situation. The basic form of object creation could result in design problems or in added complexity to the design. Creational design patterns solve this problem by somehow controlling this object creation.
  >
  >**Source:** [wikipedia.org](https://en.wikipedia.org/wiki/Creational_pattern)
@@ -1015,7 +1015,7 @@ import UIKit
 /*:
  Abstract Factory
  -----------------
- 
+
  The abstract factory pattern is used to provide a client with a set of related or dependant objects.
  The "family" of objects created by the factory are determined at run-time.
  
@@ -1092,7 +1092,7 @@ fullsizeHatchback.drive()
 /*:
  Builder
  ----------
- 
+
  The builder pattern is used to create complex objects with constituent parts that must be created in the same order or using a specific algorithm.
  An external class controls the construction algorithm.
  
@@ -1209,7 +1209,7 @@ print(motorcycle)
 /*:
  Factory Method
  ---------------
- 
+
  The factory pattern is used to replace class constructors, abstracting the process of object generation so that the type of the object instantiated can be determined at run-time.
  
 ### Implementation
@@ -1284,7 +1284,7 @@ for creator in creators {
 /*:
  Object Pool
  ------------
- 
+
  The object pool pattern can offer a significant performance boost; it is most effective in situations where the cost of initializing a class instance is high, the rate of instantiation of a class is high, and the number of instantiations in use at any one time is low.
  
 ### Implementation
@@ -1413,7 +1413,7 @@ MagicHouse.printReport()
 /*:
  Prototype
  ----------
- 
+
  The prototype pattern is used to instantiate a new object by copying all of the properties of an existing object, creating an independent clone.
  This practise is particularly useful when the construction of a new object is inefficient.
  
@@ -1458,7 +1458,7 @@ second.text = "This is the second paragraph"
 /*:
  Simple Factory
  ---------------
- 
+
  The simple factory pattern allows interfaces for creating objects without exposing the object creation logic to the client.
  
 ### Implementation
@@ -1589,7 +1589,7 @@ import UIKit
 /*:
  Adapter
  --------
- 
+
  The adapter pattern is used to provide a link between two otherwise incompatible types by wrapping the "adaptee" with a class that supports the interface required by the client.
  
 ### Implementation
@@ -1649,7 +1649,8 @@ adapter.request()
 /*:
  Private Class Data
  -------------------
- The private class data design pattern seeks to reduce exposure of attributes by limiting their visibility.
+
+The private class data design pattern seeks to reduce exposure of attributes by limiting their visibility.
  
 ### Implementation
  */
@@ -1691,7 +1692,7 @@ print(circle.circumference)
 /*:
  Composite
  ----------
- 
+
  The composite pattern is used to create hierarchical, recursive tree structures of related objects where any element of the structure may be accessed and utilised in a standard manner.
  
 ### Implementation
@@ -1837,7 +1838,7 @@ print(passwordValidator.validate("paSSw0rd"))
 /*:
  Decorator
  ----------
- 
+
  The decorator pattern is used to extend or alter the functionality of objects at run- time by wrapping them in an object of a decorator class.
  This provides a flexible alternative to using inheritance to modify behaviour.
  
@@ -1902,7 +1903,7 @@ print("Path = \(element.imagePath())")
 /*:
  Façade
  -------
- 
+
  The facade pattern is used to define a simplified interface to a more complex subsystem.
  
 ### Implementation
@@ -1963,7 +1964,8 @@ travelPackage.book()
 /*:
  Flyweight
  ----------
- The flyweight pattern is used to minimize memory usage or computational expenses by sharing as much as possible with other similar objects.
+
+The flyweight pattern is used to minimize memory usage or computational expenses by sharing as much as possible with other similar objects.
  
 ### Implementation
  */
@@ -2060,7 +2062,7 @@ aviationRadar.moveSoldier(to: CGPoint(x: 1, y: 5))
 /*:
  Protection Proxy
  -----------------
- 
+
  The proxy pattern is used to provide a surrogate or placeholder object, which references an underlying object.
  Protection proxy is restricting access.
  
@@ -2113,7 +2115,7 @@ _ = vaultManager.getResourceById("1")
 /*:
  Virtual Proxy
  --------------
- 
+
  The proxy pattern is used to provide a surrogate or placeholder object, which references an underlying object.
  Virtual proxy is used for loading object on demand.
  

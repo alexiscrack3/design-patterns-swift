@@ -2,8 +2,7 @@
 //: Creational |
 //: [Structural](Structural)
 /*:
-Creational
-==========
+# Creational
  
  > In software engineering, creational design patterns are design patterns that deal with object creation mechanisms, trying to create objects in a manner suitable to the situation. The basic form of object creation could result in design problems or in added complexity to the design. Creational design patterns solve this problem by somehow controlling this object creation.
  >
@@ -13,8 +12,7 @@ import Swift
 import Foundation
 import UIKit
 /*:
- Abstract Factory
- -----------------
+## Abstract Factory
  
  The abstract factory pattern is used to provide a client with a set of related or dependant objects.
  The "family" of objects created by the factory are determined at run-time.
@@ -90,8 +88,7 @@ let fullsizeHatchback = fullSizeCarsFactory.produceHatchback()
 fullsizeSedan.drive()
 fullsizeHatchback.drive()
 /*:
- Builder
- ----------
+## Builder
  
  The builder pattern is used to create complex objects with constituent parts that must be created in the same order or using a specific algorithm.
  An external class controls the construction algorithm.
@@ -207,8 +204,7 @@ let motorcycleBuilder = MotorcycleBuilder()
 let motorcycle = Shop().build(builder: motorcycleBuilder)
 print(motorcycle)
 /*:
- Factory Method
- ---------------
+## Factory Method
  
  The factory pattern is used to replace class constructors, abstracting the process of object generation so that the type of the object instantiated can be determined at run-time.
  
@@ -282,8 +278,7 @@ for creator in creators {
     print(basketballBall.price)
 }
 /*:
- Object Pool
- ------------
+## Object Pool
  
  The object pool pattern can offer a significant performance boost; it is most effective in situations where the cost of initializing a class instance is high, the rate of instantiation of a class is high, and the number of instantiations in use at any one time is low.
  
@@ -411,8 +406,7 @@ _ = MagicHouse.lendMagicObject(occupier: "William")
 _ = MagicHouse.lendMagicObject(occupier: "Tato")
 MagicHouse.printReport()
 /*:
- Prototype
- ----------
+## Prototype
  
  The prototype pattern is used to instantiate a new object by copying all of the properties of an existing object, creating an independent clone.
  This practise is particularly useful when the construction of a new object is inefficient.
@@ -456,8 +450,7 @@ first.text = "This is the first paragraph"
 let second = base.clone()
 second.text = "This is the second paragraph"
 /*:
- Simple Factory
- ---------------
+## Simple Factory
  
  The simple factory pattern allows interfaces for creating objects without exposing the object creation logic to the client.
  
@@ -500,8 +493,7 @@ superMario.play()
 let streetFighter = SimpleFactory.createVideoGame(type: .combat)
 streetFighter.play()
 /*:
- Singleton
- ----------
+## Singleton
 
 The singleton pattern ensures that only one object of a particular class is ever created.
 All further references to objects of the singleton class refer to the same underlying instance.

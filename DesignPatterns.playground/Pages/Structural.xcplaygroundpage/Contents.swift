@@ -13,8 +13,7 @@ import Swift
 import Foundation
 import UIKit
 /*:
- Adapter
- --------
+## Adapter
  
  The adapter pattern is used to provide a link between two otherwise incompatible types by wrapping the "adaptee" with a class that supports the interface required by the client.
  
@@ -73,8 +72,8 @@ let adapter = HTTPClient(adaptee)
 adapter.request()
 
 /*:
- Private Class Data
- -------------------
+##  Private Class Data
+
  The private class data design pattern seeks to reduce exposure of attributes by limiting their visibility.
  
 ### Implementation
@@ -115,8 +114,7 @@ class Circle {
 let circle = Circle(radius: 3.0, color: .red, origin: .zero)
 print(circle.circumference)
 /*:
- Composite
- ----------
+##  Composite
  
  The composite pattern is used to create hierarchical, recursive tree structures of related objects where any element of the structure may be accessed and utilised in a standard manner.
  
@@ -261,8 +259,7 @@ print(passwordValidator.validate("psS$"))
 print(passwordValidator.validate("passw0rd"))
 print(passwordValidator.validate("paSSw0rd"))
 /*:
- Decorator
- ----------
+## Decorator
  
  The decorator pattern is used to extend or alter the functionality of objects at run- time by wrapping them in an object of a decorator class.
  This provides a flexible alternative to using inheritance to modify behaviour.
@@ -326,8 +323,7 @@ print("Path = \(element.imagePath())")
 element = SizeDecorator(decoratedElement: element)
 print("Path = \(element.imagePath())")
 /*:
- Façade
- -------
+## Façade
  
  The facade pattern is used to define a simplified interface to a more complex subsystem.
  
@@ -387,8 +383,8 @@ class TravelPackageFacade: TravelPackage {
 let travelPackage = TravelPackageFacade()
 travelPackage.book()
 /*:
- Flyweight
- ----------
+## Flyweight
+
  The flyweight pattern is used to minimize memory usage or computational expenses by sharing as much as possible with other similar objects.
  
 ### Implementation
@@ -484,8 +480,7 @@ let aviationRadar = Radar(currentLocation: CGPoint(x: 5, y: 10), soldier: aviati
 aviation = soldierFactory.getSoldier(type: .aviation) // Same soldier
 aviationRadar.moveSoldier(to: CGPoint(x: 1, y: 5))
 /*:
- Protection Proxy
- -----------------
+## Protection Proxy
  
  The proxy pattern is used to provide a surrogate or placeholder object, which references an underlying object.
  Protection proxy is restricting access.
@@ -537,8 +532,7 @@ _ = vaultManager.getResourceById("123")
 _ = vaultManager.authenticate(password: "pass")
 _ = vaultManager.getResourceById("1")
 /*:
- Virtual Proxy
- --------------
+## Virtual Proxy
  
  The proxy pattern is used to provide a surrogate or placeholder object, which references an underlying object.
  Virtual proxy is used for loading object on demand.
