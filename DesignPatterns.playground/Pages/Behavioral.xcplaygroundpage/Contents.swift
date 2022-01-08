@@ -306,7 +306,7 @@ class ImmutablePerson {
 ### Usage
  */
 let person = ImmutablePerson(name: "Foo")
-person.uppercased()
+print(person.uppercased())
 /*:
 ## Interpreter
 
@@ -650,7 +650,7 @@ let memento = editor.save()
 
 editor.contents = "Bar"
 editor.restoreToState(memento: memento)
-editor.contents
+print(editor.contents)
 /*:
 ## Observer
 
@@ -921,3 +921,4 @@ let names = planets.map { (planet: Planet) -> String in
     planet.accept(visitor: visitor)
     return visitor.name
 }
+print(names)
