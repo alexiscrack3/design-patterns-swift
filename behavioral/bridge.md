@@ -64,7 +64,7 @@ remoteControl.turnOn()
 
 ### Output
 
-```swift
+```text
 Turning the lamp on
 Turning the TV on
 ```
