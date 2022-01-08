@@ -29,6 +29,7 @@ Reusing design patterns help prevent subtle issues that cause major problems, an
 - [Command](command.md)
 - [Immutable](immutable.md)
 - [Interpreter](interpreter.md)
+- [Iterator](iterator.md)
 
 ### Mediator
 
