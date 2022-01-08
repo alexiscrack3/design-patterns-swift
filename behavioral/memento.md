@@ -41,3 +41,9 @@ editor.contents = "Bar"
 editor.restoreToState(memento: memento)
 editor.contents
 ```
+
+### Output
+
+```text
+Foo
+```
