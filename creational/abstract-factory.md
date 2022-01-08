@@ -78,3 +78,12 @@ let fullsizeHatchback = fullSizeCarsFactory.produceHatchback()
 fullsizeSedan.drive()
 fullsizeHatchback.drive()
 ```
+
+### Output
+
+```text
+drive a compact sedan
+drive a compact SUV
+drive a full-size sedan
+drive a full-size SUV
+```
