@@ -44,3 +44,10 @@ docFile.save("file")
 let textFile = SaveFileDialog(strategy: TextFileStrategy())
 textFile.save("file")
 ```
+
+### Output
+
+```text
+Saved in file.doc
+Saved in file.txt
+```
