@@ -83,3 +83,31 @@ red.turnOn()
 green.turnOn()
 yellow.turnOn()
 ```
+
+### Output
+
+```text
+Red is turned on
+
+Green is turned off
+
+Yellow is turned off
+
+------------------------------
+
+Green is turned on
+
+Yellow is turned off
+
+Red is turned off
+
+------------------------------
+
+Yellow is turned on
+
+Green is turned off
+
+Red is turned off
+
+------------------------------
+```
