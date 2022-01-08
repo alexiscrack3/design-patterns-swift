@@ -61,3 +61,12 @@ class TravelPackageFacade: TravelPackage {
 let travelPackage = TravelPackageFacade()
 travelPackage.book()
 ```
+
+### Output
+
+```text
+Transfer booked successfully
+Hotel booked successfully
+Flight booked successfully
+Travel package booked successfully
+```
