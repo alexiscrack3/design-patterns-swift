@@ -57,3 +57,10 @@ print(appContext.userId ?? "")
 appContext.changeStateToUnauthorized()
 print(appContext.userId ?? "")
 ```
+
+### Output
+
+```text
+
+admin
+```
