@@ -43,3 +43,9 @@ class Circle {
 let circle = Circle(radius: 3.0, color: .red, origin: .zero)
 print(circle.circumference)
 ```
+
+### Output
+
+```text
+9.42477796076938
+```
