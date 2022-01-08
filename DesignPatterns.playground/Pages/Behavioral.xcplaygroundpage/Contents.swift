@@ -13,7 +13,7 @@ import Foundation
 /*:
 ## Bridge
 
- The bridge pattern is used to separate the abstract elements of a class from the implementation details, providing the means to replace the implementation details without modifying the abstraction.
+The bridge pattern is used to separate the abstract elements of a class from the implementation details, providing the means to replace the implementation details without modifying the abstraction.
 
 ### Implementation
 
@@ -74,7 +74,7 @@ remoteControl.turnOn()
 /*:
 ## Chain Of Responsibility
 
- The chain of responsibility pattern is used to process varied requests, each of which may be dealt with by a different handler.
+The chain of responsibility pattern is used to process varied requests, each of which may be dealt with by a different handler.
 
 ### Implementation
  */
@@ -165,7 +165,7 @@ print(atm.canWithdraw(amount: 30))  // Can withdraw - 1x20, 2x10
 /*:
 ## Command
 
- The command pattern is used to express a request, including the call to be made and all of its required parameters, in a command object. The command may then be executed immediately or held for later use.
+The command pattern is used to express a request, including the call to be made and all of its required parameters, in a command object. The command may then be executed immediately or held for later use.
 
 ### Implementation
  */
@@ -287,7 +287,7 @@ computer.redo(levels: 3)
 /*:
 ## Immutable
 
- The immutable pattern is used to allow .
+The immutable pattern is used to allow .
 
 ### Implementation
  */
@@ -465,7 +465,7 @@ print("\(roman) = \(context.output)")
 /*:
 ## Iterator
 
- The iterator pattern is used to provide a standard interface for traversing a collection of items in an aggregate object without the need to understand its underlying structure.
+The iterator pattern is used to provide a standard interface for traversing a collection of items in an aggregate object without the need to understand its underlying structure.
 
 ### Implementation
  */
@@ -531,7 +531,7 @@ for song in spotify {
 /*:
 ## Mediator
 
- The mediator pattern is used to reduce coupling between classes that communicate with each other. Instead of classes communicating directly, and thus requiring knowledge of their implementation, the classes send messages via a mediator object.
+The mediator pattern is used to reduce coupling between classes that communicate with each other. Instead of classes communicating directly, and thus requiring knowledge of their implementation, the classes send messages via a mediator object.
 
 ### Implementation
  */
@@ -613,7 +613,7 @@ yellow.turnOn()
 /*:
 ## Memento
 
- The memento pattern is used to capture the current state of an object and store it in such a manner that it can be restored at a later time without breaking the rules of encapsulation.
+The memento pattern is used to capture the current state of an object and store it in such a manner that it can be restored at a later time without breaking the rules of encapsulation.
 
 ### Implementation
  */
@@ -654,8 +654,7 @@ editor.contents
 /*:
 ## Observer
 
- The observer pattern is used to allow an object to publish changes to its state.
- Other objects subscribe to be immediately notified of any changes.
+The observer pattern is used to allow an object to publish changes to its state. Other objects subscribe to be immediately notified of any changes.
 
 ### Observer Implementation
  */
@@ -718,8 +717,7 @@ shorts.inStock = true
 /*:
 ## State
 
- The state pattern is used to alter the behaviour of an object as its internal state changes.
- The pattern allows the class for an object to apparently change at run-time.
+The state pattern is used to alter the behaviour of an object as its internal state changes. The pattern allows the class for an object to apparently change at run-time.
 
 ### Implementation
  */
@@ -818,13 +816,7 @@ textFile.save("file")
 /*:
 ## Template
 
- The Template Pattern is used when two or more implementations of an
- algorithm exist. The template is defined and then built upon with further
- variations. Use this method when most (or all) subclasses need to implement
- the same behavior. Traditionally, this would be accomplished with abstract
- classes and protected methods (as in Java). However in Swift, because
- abstract classes don't exist (yet - maybe someday),  we need to accomplish
- the behavior using interface delegation.
+The template pattern is used when two or more implementations of an algorithm exist. The template is defined and then built upon with further variations. Use this method when most (or all) subclasses need to implement the same behavior. Traditionally, this would be accomplished with abstract classes and protected methods (as in Java). However in Swift, because abstract classes don't exist (yet - maybe someday),  we need to accomplish the behavior using interface delegation.
 
 ### Implementation
  */
@@ -886,7 +878,7 @@ battleship.play()
 /*:
 ## Visitor
 
- The visitor pattern is used to separate a relatively complex set of structured data classes from the functionality that may be performed upon the data that they hold.
+The visitor pattern is used to separate a relatively complex set of structured data classes from the functionality that may be performed upon the data that they hold.
 
 ### Implementation
  */
