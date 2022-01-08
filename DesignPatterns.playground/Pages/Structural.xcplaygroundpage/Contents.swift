@@ -532,8 +532,7 @@ _ = vaultManager.getResourceById("1")
 /*:
 ## Virtual Proxy
 
- The proxy pattern is used to provide a surrogate or placeholder object, which references an underlying object.
- Virtual proxy is used for loading object on demand.
+The virtual proxy pattern is used to provide a surrogate or placeholder object, which references an underlying object. Virtual proxy is used for loading object on demand.
 
 ### Implementation
  */
