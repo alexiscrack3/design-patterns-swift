@@ -64,3 +64,11 @@ print("Path = \(element.imagePath())")
 element = SizeDecorator(decoratedElement: element)
 print("Path = \(element.imagePath())")
 ```
+
+### Output
+
+```text
+Path = shape.png
+Path = color-shape.png
+Path = size-color-shape.png
+```
