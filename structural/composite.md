@@ -146,3 +146,15 @@ print(passwordValidator.validate("psS$"))
 print(passwordValidator.validate("passw0rd"))
 print(passwordValidator.validate("paSSw0rd"))
 ```
+
+### Output
+
+```text
+invalid(error: __lldb_expr_73.EmailValidatorError.empty)
+invalid(error: __lldb_expr_73.EmailValidatorError.invalidFormat)
+valid
+invalid(error: __lldb_expr_73.PasswordValidatorError.empty)
+invalid(error: __lldb_expr_73.PasswordValidatorError.tooShort)
+invalid(error: __lldb_expr_73.PasswordValidatorError.noUppercaseLetter)
+valid
+```
