@@ -44,21 +44,21 @@ protocol Appliance {
 
 class Lamp: Appliance {
     func turnOn() {
-        print("Turning on Lamp")
+        print("Turning the lamp on")
     }
 
     func turnOff() {
-        print("Turning off Lamp")
+        print("Turning the lamp off")
     }
 }
 
 class TV: Appliance {
     func turnOn() {
-        print("Turning on TV")
+        print("Turning the TV On")
     }
 
     func turnOff() {
-        print("Turning off TV")
+        print("Turning the TV On")
     }
 }
 /*:
