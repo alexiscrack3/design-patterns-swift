@@ -106,6 +106,12 @@ let car = CarBuilder()
 print(car)
 ```
 
+### Output
+
+```text
+Vehicle(frame: "Frame", engine: "Engine", wheels: 4, doors: 4)
+```
+
 ## Director Usage
 
 ```swift
@@ -117,4 +123,10 @@ let motorcycleBuilder = MotorcycleBuilder()
 
 let motorcycle = Shop().build(builder: motorcycleBuilder)
 print(motorcycle)
+```
+
+### Output Director
+
+```text
+Vehicle(frame: "Motorcycle - Frame", engine: "Motorcycle - Engine", wheels: 4, doors: 4)
 ```
