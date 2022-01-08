@@ -58,72 +58,7 @@ Reusing design patterns help prevent subtle issues that cause major problems, an
  >
  >**Source:** [wikipedia.org](https://en.wikipedia.org/wiki/Structural_pattern)
 
-```swift
-import Swift
-import Foundation
-import UIKit
-```
-
-### Adapter
-
- The adapter pattern is used to provide a link between two otherwise incompatible types by wrapping the "adaptee" with a class that supports the interface required by the client.
-
-#### Adapter Implementation
-
-```swift
-class XMLParser {
-    private let response: XMLResponse
-
-    init(response: XMLResponse) {
-        self.response = response
-    }
-
-    func parse() -> JSONResponse {
-        return JSONResponse()
-    }
-}
-
-class JSONResponse {
-    let value = "[{}]"
-}
-
-class XMLResponse {
-    let value = "<?xml version=\"1.0\" ?><note></note>"
-}
-
-protocol HTTPRequestTarget {
-    func request() -> JSONResponse
-}
-
-class HTTPClient: HTTPRequestTarget {
-    private let adaptee: LegacyHTTPClient
-
-    init(_ adaptee: LegacyHTTPClient) {
-        self.adaptee = adaptee
-    }
-
-    func request() -> JSONResponse {
-        let xmlResponse = adaptee.request()
-        let jsonResponse = XMLParser(response: xmlResponse)
-        return jsonResponse.parse()
-    }
-}
-
-class LegacyHTTPClient {
-    func request() -> XMLResponse {
-        return XMLResponse()
-    }
-}
-```
-
-#### Adapter Usage
-
-```swift
-let adaptee = LegacyHTTPClient()
-let adapter = HTTPClient(adaptee)
-
-adapter.request()
-```
+- [Adapter](structural/adapter.md)
 
 ### Private Class Data
 
