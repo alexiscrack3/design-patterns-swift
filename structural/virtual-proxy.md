@@ -1,4 +1,4 @@
-# Name
+# Virtual Proxy
 
 The virtual proxy pattern is used to provide a surrogate or placeholder object, which references an underlying object. Virtual proxy is used for loading object on demand.
 
