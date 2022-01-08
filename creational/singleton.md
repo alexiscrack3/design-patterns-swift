@@ -70,3 +70,9 @@ class Logger {
 ```swift
 Log.i(tag: .model, message: "info")
 ```
+
+### Output
+
+```text
+2:  info
+```
