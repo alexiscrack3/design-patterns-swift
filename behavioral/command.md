@@ -123,3 +123,23 @@ computer.undo(levels: 4)
 
 computer.redo(levels: 3)
 ```
+
+### Output
+
+```text
+Current value = 100 (following plus 100)
+Current value = 50 (following minus 50)
+Current value = 500 (following asterisk 10)
+Current value = 250 (following slash 2)
+
+---- Undo 4 levels
+Current value = 500 (following asterisk 2)
+Current value = 50 (following slash 10)
+Current value = 100 (following plus 50)
+Current value = 0 (following minus 100)
+
+---- Redo 3 levels
+Current value = 100 (following plus 100)
+Current value = 50 (following minus 50)
+Current value = 500 (following asterisk 10)
+```
