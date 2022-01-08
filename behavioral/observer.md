@@ -64,3 +64,10 @@ shorts.attach(observer: bar)
 
 shorts.inStock = true
 ```
+
+### Output
+
+```text
+Is product available? true
+Is product available? true
+```
