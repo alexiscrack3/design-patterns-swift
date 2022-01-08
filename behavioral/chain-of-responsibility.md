@@ -92,3 +92,12 @@ print(atm.canWithdraw(amount: 100)) // Can withdraw - 1x100
 print(atm.canWithdraw(amount: 165)) // Cannot withdraw because ATM doesn't has bill with value of 5
 print(atm.canWithdraw(amount: 30))  // Can withdraw - 1x20, 2x10
 ```
+
+### Output
+
+```text
+Can withdraw: false
+Can withdraw: true
+Can withdraw: false
+Can withdraw: true
+```
