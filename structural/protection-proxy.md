@@ -1,4 +1,4 @@
-# Name
+# Protection Proxy
 
 The proxy pattern is used to provide a surrogate or placeholder object, which references an underlying object. Protection proxy is restricting access.
 
