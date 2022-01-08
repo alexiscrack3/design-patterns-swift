@@ -156,3 +156,9 @@ for expression in expressions {
 }
 print("\(roman) = \(context.output)")
 ```
+
+### Output
+
+```text
+MCMXXVIII = 1928
+```
