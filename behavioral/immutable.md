@@ -22,5 +22,11 @@ class ImmutablePerson {
 
 ```swift
 let person = ImmutablePerson(name: "Foo")
-person.uppercased()
+print(person.uppercased())
+```
+
+### Output
+
+```text
+FOO
 ```
