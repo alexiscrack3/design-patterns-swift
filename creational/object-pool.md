@@ -129,3 +129,37 @@ _ = MagicHouse.lendMagicObject(occupier: "William")
 _ = MagicHouse.lendMagicObject(occupier: "Tato")
 MagicHouse.printReport()
 ```
+
+### Output
+
+```text
+------Starting test...
+person #4 is borrowing Blue Heart #1
+person #1 is borrowing Red Diamond #1
+person #6 is borrowing Blue Heart #0
+person #2 is borrowing Blue Heart #2
+person #5 is borrowing Red Diamond #0
+person #7 is borrowing Blue Heart #2
+person #2 returning Blue Heart #2
+person #7 returning Blue Heart #2
+person #3 is borrowing Blue Heart #2
+person #1 returning Red Diamond #1
+person #5 returning Red Diamond #0
+person #6 returning Blue Heart #0
+person #4 returning Blue Heart #1
+person #3 returning Blue Heart #2
+William is borrowing Red Diamond #1
+Tato is borrowing Red Diamond #0
+
+Show Report: Magic House currently has 3 magic object(s) in stock
+Blue Heart #0
+Borrowed 1 time(s) by ["person #6"]
+Blue Heart #1
+Borrowed 1 time(s) by ["person #4"]
+Blue Heart #2
+Borrowed 3 time(s) by ["person #2", "person #7", "person #3"]
+
+Magic Objects currently lent out:
+Red Diamond #1 by William
+Red Diamond #0 by Tato
+```
