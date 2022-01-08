@@ -481,8 +481,7 @@ aviationRadar.moveSoldier(to: CGPoint(x: 1, y: 5))
 /*:
 ## Protection Proxy
 
- The proxy pattern is used to provide a surrogate or placeholder object, which references an underlying object.
- Protection proxy is restricting access.
+The proxy pattern is used to provide a surrogate or placeholder object, which references an underlying object. Protection proxy is restricting access.
 
 ### Implementation
  */
