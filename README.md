@@ -24,19 +24,19 @@ Reusing design patterns help prevent subtle issues that cause major problems, an
  >
  >**Source:** [wikipedia.org](https://en.wikipedia.org/wiki/Behavioral_pattern)
 
-- [Bridge](bridge.md)
-- [Chain of Responsibility](chain-of-responsibility.md)
-- [Command](command.md)
-- [Immutable](immutable.md)
-- [Interpreter](interpreter.md)
-- [Iterator](iterator.md)
-- [Mediator](mediator.md)
-- [Memento](memento.md)
-- [Observer](observer.md)
-- [State](state.md)
-- [Strategy](strategy.md)
-- [Template](template.md)
-- [Visitor](visitor.md)
+- [Bridge](behavioral/bridge.md)
+- [Chain of Responsibility](behavioral/chain-of-responsibility.md)
+- [Command](behavioral/command.md)
+- [Immutable](behavioral/immutable.md)
+- [Interpreter](behavioral/interpreter.md)
+- [Iterator](behavioral/iterator.md)
+- [Mediator](behavioral/mediator.md)
+- [Memento](behavioral/memento.md)
+- [Observer](behavioral/observer.md)
+- [State](behavioral/state.md)
+- [Strategy](behavioral/strategy.md)
+- [Template](behavioral/template.md)
+- [Visitor](behavioral/visitor.md)
 
 ## Creational
 
