@@ -3,7 +3,7 @@
 //: [Structural](Structural)
 /*:
 # Behavioral
- 
+
  >In software engineering, behavioral design patterns are design patterns that identify common communication patterns between objects and realize these patterns. By doing so, these patterns increase flexibility in carrying out this communication.
  >
  >**Source:** [wikipedia.org](https://en.wikipedia.org/wiki/Behavioral_pattern)
@@ -429,19 +429,19 @@ class OneExpression: Expression {
     func one() -> String {
         return "I"
     }
- 
+
     func four() -> String {
         return "IV"
     }
- 
+
     func five() -> String {
         return "V"
     }
- 
+
     func nine() -> String {
         return "IX"
     }
- 
+
     func multiplier() -> Int {
         return 1
     }
@@ -725,7 +725,7 @@ shorts.inStock = true
  */
 class AppContext {
     private var state: State = UnauthorizedState()
-    
+
     var isAuthorized: Bool {
         return state.isAuthorized(context: self)
     }
