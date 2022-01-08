@@ -324,7 +324,7 @@ print("Path = \(element.imagePath())")
 /*:
 ## Façade
 
- The facade pattern is used to define a simplified interface to a more complex subsystem.
+The facade pattern is used to define a simplified interface to a more complex subsystem.
 
 ### Implementation
  */
