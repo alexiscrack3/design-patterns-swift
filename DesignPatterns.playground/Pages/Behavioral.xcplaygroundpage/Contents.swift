@@ -54,11 +54,11 @@ class Lamp: Appliance {
 
 class TV: Appliance {
     func turnOn() {
-        print("Turning the TV On")
+        print("Turning the TV on")
     }
 
     func turnOff() {
-        print("Turning the TV On")
+        print("Turning the TV off")
     }
 }
 /*:
