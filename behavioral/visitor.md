@@ -47,3 +47,9 @@ let names = planets.map { (planet: Planet) -> String in
     return visitor.name
 }
 ```
+
+### Output
+
+```text
+["Earth", "Mars", "Jupiter"]
+```
