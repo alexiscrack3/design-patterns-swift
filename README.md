@@ -1729,3 +1729,7 @@ class ProxyImage: Imageable {
 let proxyImage = ProxyImage(url: URL(string: "")!)
 _ = proxyImage.render()
 ```
+
+## License
+
+Licensed under MIT License. See [LICENSE](LICENSE) for further details.
