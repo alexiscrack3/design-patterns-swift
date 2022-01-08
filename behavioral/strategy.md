@@ -35,7 +35,7 @@ class TextFileStrategy: Strategy {
 }
 ```
 
-## Usage
+### Usage
 
 ```swift
 let docFile = SaveFileDialog(strategy: DocFileStrategy())

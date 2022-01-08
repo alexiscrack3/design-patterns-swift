@@ -47,7 +47,7 @@ class AuthorizedState: State {
 }
 ```
 
-## Usage
+### Usage
 
 ```swift
 let appContext = AppContext()

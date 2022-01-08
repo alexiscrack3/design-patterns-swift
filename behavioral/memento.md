@@ -30,7 +30,7 @@ class Editor {
 }
 ```
 
-## Usage
+### Usage
 
 ```swift
 let editor = Editor()

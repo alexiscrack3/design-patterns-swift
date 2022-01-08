@@ -85,7 +85,7 @@ class SoldierFactory {
 }
 ```
 
-## Usage
+### Usage
 
 ```swift
 let soldierFactory = SoldierFactory.shared

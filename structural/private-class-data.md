@@ -37,7 +37,7 @@ class Circle {
 }
 ```
 
-## Usage
+### Usage
 
 ```swift
 let circle = Circle(radius: 3.0, color: .red, origin: .zero)

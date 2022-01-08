@@ -43,7 +43,7 @@ class VaultManager: Authenticable {
 }
 ```
 
-## Usage
+### Usage
 
 ```swift
 let vaultManager = VaultManager()

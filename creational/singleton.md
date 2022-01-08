@@ -65,7 +65,7 @@ class Logger {
 }
 ```
 
-## Usage
+### Usage
 
 ```swift
 Log.i(tag: .model, message: "info")

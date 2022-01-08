@@ -110,7 +110,7 @@ class Computer {
 }
 ```
 
-## Usage
+### Usage
 
 ```swift
 let computer = Computer()

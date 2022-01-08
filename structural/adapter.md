@@ -50,7 +50,7 @@ class LegacyHTTPClient {
 }
 ```
 
-## Usage
+### Usage
 
 ```swift
 let adaptee = LegacyHTTPClient()

@@ -63,7 +63,7 @@ class FullSizeCarsFactory: Factory {
 }
 ```
 
-## Usage
+### Usage
 
 ```swift
 let compactCarsFactory = CompactCarsFactory()

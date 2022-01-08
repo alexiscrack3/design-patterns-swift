@@ -35,7 +35,7 @@ class SimpleFactory {
 }
 ```
 
-## Usage
+### Usage
 
 ```swift
 let superMario = SimpleFactory.createVideoGame(type: .adventure)

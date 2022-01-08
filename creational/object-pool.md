@@ -107,7 +107,7 @@ class MagicHouse {
 }
 ```
 
-## Usage
+### Usage
 
 ```swift
 let queue = DispatchQueue(label: "workQ", attributes: .concurrent)

@@ -36,7 +36,7 @@ class NameVisitor: PlanetVisitor {
 }
 ```
 
-## Usage
+### Usage
 
 ```swift
 let planets: [Planet] = [Earth(), Mars(), Jupiter()]

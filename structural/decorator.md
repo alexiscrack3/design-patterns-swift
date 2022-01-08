@@ -54,7 +54,7 @@ final class SizeDecorator: ElementDecorator {
 }
 ```
 
-## Usage
+### Usage
 
 ```swift
 var element: Element = Shape()

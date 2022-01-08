@@ -54,7 +54,7 @@ class Battleship: BoardGamePhases {
 }
 ```
 
-## Usage
+### Usage
 
 ```swift
 let monoply = BoardGameController(delegate: Monoply())

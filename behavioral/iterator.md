@@ -58,7 +58,7 @@ class Spotify: MusicLibrary {
 }
 ```
 
-## Usage
+### Usage
 
 ```swift
 let spotify = Spotify(songs: [Song(title: "Foo"), Song(title: "Bar")] )

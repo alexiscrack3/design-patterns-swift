@@ -55,7 +55,7 @@ class TravelPackageFacade: TravelPackage {
 }
 ```
 
-## Usage
+### Usage
 
 ```swift
 let travelPackage = TravelPackageFacade()

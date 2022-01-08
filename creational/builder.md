@@ -94,7 +94,7 @@ struct Vehicle {
 }
 ```
 
-## Usage
+### Usage
 
 ```swift
 let car = CarBuilder()

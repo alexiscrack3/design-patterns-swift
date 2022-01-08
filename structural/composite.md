@@ -130,7 +130,7 @@ struct ValidatorConfigurator {
 }
 ```
 
-## Usage
+### Usage
 
 ```swift
 let validatorConfigurator = ValidatorConfigurator.shared

@@ -39,7 +39,7 @@ class ProxyImage: Imageable {
 }
 ```
 
-## Usage
+### Usage
 
 ```swift
 let proxyImage = ProxyImage(url: URL(string: "")!)

@@ -29,7 +29,7 @@ class Paragraph: TextScheme {
 }
 ```
 
-## Usage
+### Usage
 
 ```swift
 let base = Paragraph()

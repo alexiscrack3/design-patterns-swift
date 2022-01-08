@@ -18,7 +18,7 @@ class ImmutablePerson {
 }
 ```
 
-## Usage
+### Usage
 
 ```swift
 let person = ImmutablePerson(name: "Foo")

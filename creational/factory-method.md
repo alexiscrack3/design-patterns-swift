@@ -64,7 +64,7 @@ class AdidasFactory: SportsFactory {
 }
 ```
 
-## Usage
+### Usage
 
 ```swift
 let creators: [SportsFactory] = [NikeFactory(), AdidasFactory()]

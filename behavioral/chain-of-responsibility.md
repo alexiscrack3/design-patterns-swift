@@ -77,7 +77,7 @@ class ATM {
 }
 ```
 
-## Usage
+### Usage
 
 ```swift
 // Create piles of money and link them together 10 < 20 < 50 < 100.**

@@ -50,7 +50,7 @@ class TV: Appliance {
 }
 ```
 
-## Usage
+### Usage
 
 ```swift
 var remoteControl: Switch = RemoteControl()

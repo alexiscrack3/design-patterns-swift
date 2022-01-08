@@ -71,7 +71,7 @@ class LightMediator {
 }
 ```
 
-## Usage
+### Usage
 
 ```swift
 let lightMediator = LightMediator()

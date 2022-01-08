@@ -52,7 +52,7 @@ class User: Observer {
 }
 ```
 
-## Usage
+### Usage
 
 ```swift
 let foo = User()
