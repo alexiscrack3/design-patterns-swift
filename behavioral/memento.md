@@ -39,7 +39,7 @@ let memento = editor.save()
 
 editor.contents = "Bar"
 editor.restoreToState(memento: memento)
-editor.contents
+print(editor.contents)
 ```
 
 ### Output
