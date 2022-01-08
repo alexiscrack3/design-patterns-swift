@@ -67,3 +67,10 @@ for song in spotify {
     print("I've read: \(song)")
 }
 ```
+
+### Output
+
+```text
+I've read: Song(title: "Foo")
+I've read: Song(title: "Bar")
+```
