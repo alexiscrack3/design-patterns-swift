@@ -27,33 +27,7 @@ Reusing design patterns help prevent subtle issues that cause major problems, an
 - [Bridge](bridge.md)
 - [Chain of Responsibility](chain-of-responsibility.md)
 - [Command](command.md)
-
-### Immutable
-
- The immutable pattern is used to allow .
-
-#### Immutable Implementation
-
-```swift
-class ImmutablePerson {
-    private var name: String
-
-    init(name: String) {
-        self.name = name
-    }
-
-    func uppercased() -> String {
-        return ImmutablePerson(name: self.name).name.uppercased()
-    }
-}
-```
-
-#### Immutable Usage
-
-```swift
-let person = ImmutablePerson(name: "Foo")
-person.uppercased()
-```
+- [Immutable](immutable.md)
 
 ### Interpreter
 
