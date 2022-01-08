@@ -1,90 +1,30 @@
-# Swift Design Patterns
+# Design Patterns in Swift
 
-Design patterns are typical solutions to commonly occurring problems in software design.
+## What are design patterns?
 
-Design patterns can speed up the development process by providing tested, proven
-development paradigms.
+Design patterns are the best, formalized practices a programmer can use to solve common problems when designing an application or system.
+
+Design patterns can speed up the development process by providing tested, proven development paradigms.
+
+Reusing design patterns help prevent subtle issues that cause major problems, and it also improves code readability for coders and architects who are familiar with the patterns.
 
 ## Table of Contents
 
-* [Behavioral](#behavioral)
-* [Creational](#creational)
-* [Structural](#structural)
+- [Types of Design Patterns](#types-of-design-patterns)
+  - [Behavioral](#behavioral)
+  - [Creational](#creational)
+  - [Structural](#structural)
+- [License](#license)
 
-## Behavioral
+## Types of Design Patterns
+
+### Behavioral
 
  >In software engineering, behavioral design patterns are design patterns that identify common communication patterns between objects and realize these patterns. By doing so, these patterns increase flexibility in carrying out this communication.
  >
  >**Source:** [wikipedia.org](https://en.wikipedia.org/wiki/Behavioral_pattern)
 
-```swift
-import Swift
-import Foundation
-```
-
-### Bridge
-
- The bridge pattern is used to separate the abstract elements of a class from the implementation details, providing the means to replace the implementation details without modifying the abstraction.
-
-#### Bridge Implementation
-
-```swift
-protocol Switch {
-    var appliance: Appliance! { get set }
-
-    func turnOn()
-    func turnOff()
-}
-
-class RemoteControl: Switch {
-    var appliance: Appliance!
-
-    func turnOn() {
-        appliance.turnOn()
-    }
-
-    func turnOff() {
-        appliance.turnOff()
-    }
-}
-
-protocol Appliance {
-    func turnOn()
-    func turnOff()
-}
-
-class Lamp: Appliance {
-    func turnOn() {
-        print("Turning the lamp on")
-    }
-
-    func turnOff() {
-        print("Turning the lamp off")
-    }
-}
-
-class TV: Appliance {
-    func turnOn() {
-        print("Turning the TV on")
-    }
-
-    func turnOff() {
-        print("Turning the TV off")
-    }
-}
-```
-
-#### Bridge Usage
-
-```swift
-var remoteControl: Switch = RemoteControl()
-
-remoteControl.appliance = Lamp()
-remoteControl.turnOn()
-
-remoteControl.appliance = TV()
-remoteControl.turnOn()
-```
+- [Bridge](bridge.md)
 
 ### Chain Of Responsibility
 
