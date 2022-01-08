@@ -61,3 +61,10 @@ remoteControl.turnOn()
 remoteControl.appliance = TV()
 remoteControl.turnOn()
 ```
+
+### Output
+
+```swift
+Turning the lamp on
+Turning the TV on
+```
