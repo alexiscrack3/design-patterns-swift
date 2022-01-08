@@ -43,4 +43,6 @@ first.text = "This is the first paragraph"
 
 let second = base.clone()
 second.text = "This is the second paragraph"
+print(first)
+print(second)
 ```
