@@ -1,4 +1,4 @@
-# Name
+# Simple Factory
 
 The simple factory pattern allows interfaces for creating objects without exposing the object creation logic to the client.
 
