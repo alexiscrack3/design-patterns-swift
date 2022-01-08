@@ -63,3 +63,14 @@ monoply.play()
 let battleship = BoardGameController(delegate: Battleship())
 battleship.play()
 ```
+
+### Output
+
+```text
+BoardGameController openBox() executed
+Monoply initialize() executed
+Monoply start() executed
+BoardGameController openBox() executed
+Battleship initialize() executed
+Battleship start() executed
+```
