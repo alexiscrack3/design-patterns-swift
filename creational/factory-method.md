@@ -75,3 +75,12 @@ for creator in creators {
     print(basketballBall.price)
 }
 ```
+
+### Output
+
+```text
+80.0
+50.0
+100.0
+60.0
+```
