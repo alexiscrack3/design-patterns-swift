@@ -555,7 +555,7 @@ class Logger {
     }
 
     func log(level: LogLevel, tag: LogTag, message: String) {
-        print("\(level.rawValue): ", message)
+        print("\(level.rawValue)/\(tag.rawValue): ", message)
     }
 }
 /*:
